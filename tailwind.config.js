@@ -7,6 +7,7 @@ export default {
   theme: {
     fontFamily: {
       inter: 'Inter',
+      pop: 'Poppins',
     },
     extend: {
       screens: {

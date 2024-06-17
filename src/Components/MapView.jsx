@@ -18,7 +18,7 @@ const MapView = () => {
     }
   }, []);
 
-  return <div id="map" ref={mapContainerRef} className='w-full h-screen'></div>;
+  return <div id="map" ref={mapContainerRef} className='w-full h-screen z-10'></div>;
 };
 
 export { MapView };
