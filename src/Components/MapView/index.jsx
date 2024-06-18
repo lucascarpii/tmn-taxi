@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import './leaflet.1.9.4.css';
 import './leaflet.1.9.4';
 import './TileLayer.Grayscale';
-import iconRef from './images/mappin-red.png'
+import { MapPinIcon } from './MapPinIcon';
 
 const MapView = () => {
   const mapContainerRef = useRef(null);
@@ -18,11 +18,11 @@ const MapView = () => {
         attribution: '© OpenStreetMap contributors'
       }).addTo(map);
 
-      let iconMarker = L.icon({
-        iconUrl: iconRef,
-        iconSize: [48, 48],
-        iconAnchor: [24, 48],
-        popupAnchor: [0, -24]
+      let iconMarker = L.divIcon({
+        html: ``,
+        className: 'custom-icon',
+        iconSize: [32, 32],
+        iconAnchor: [16, 32]
       });
 
       let marker = L.marker(map.getCenter(), {
@@ -67,8 +67,10 @@ const MapView = () => {
 
   return (
     <>
-    <div id="map" ref={mapContainerRef} className='w-full h-screen z-10 relative'></div>
-    <div></div>
+      <div id="map" ref={mapContainerRef} className='w-full h-screen z-10 relative'></div>
+      <div className='fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none text-red-600'>
+        <MapPinIcon />
+      </div>
     </>
   );
 };
