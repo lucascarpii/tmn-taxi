@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import './leaflet.1.9.4.css';
 import './leaflet.1.9.4';
 import './TileLayer.Grayscale';
-import { MapPinIcon } from './MapPinIcon';
+import { GiPositionMarker } from "react-icons/gi";
 
 const MapView = () => {
   const mapContainerRef = useRef(null);
@@ -10,8 +10,6 @@ const MapView = () => {
   const [geoPosition, setGeoPosition] = useState([-38.9272482, -68.0024678]);
 
   useEffect(() => {
-    // Asegúrate de que Leaflet esté cargado desde el CDN antes de usarlo
-
     if (mapContainerRef.current && !mapContainerRef.current._leaflet_id) {
       const map = L.map('map', { fadeAnimation: false }).setView(geoPosition, 18);
       L.tileLayer.grayscale('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -30,7 +28,7 @@ const MapView = () => {
         title: 'Usuario',
         alt: 'tmn-ico',
         draggable: false,
-        interactive: false // Hacer que el marcador no sea interactivo
+        interactive: false
       }).addTo(map);
 
       function reverseGeocode(lat, lon) {
@@ -68,12 +66,11 @@ const MapView = () => {
   return (
     <>
       <div id="map" ref={mapContainerRef} className='w-full h-screen z-10 relative'></div>
-      <div className='fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none text-red-600'>
-        <MapPinIcon />
+      <div className='fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none text-sky-600'>
+        <GiPositionMarker className='text-4xl' />
       </div>
     </>
   );
 };
 
 export { MapView };
-
