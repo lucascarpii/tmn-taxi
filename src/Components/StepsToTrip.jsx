@@ -3,20 +3,21 @@ import { Button } from "./Button";
 import { useContext, useEffect, useRef, useState } from "react";
 import { GeoContext } from "../Context";
 import { TiDeleteOutline } from "react-icons/ti";
-import { BiLoaderAlt } from "react-icons/bi";
+import { BiCurrentLocation, BiLoaderAlt } from "react-icons/bi";
+import { HiChevronLeft } from "react-icons/hi2";
 
 export function StepsToTrip() {
   const { address, loadingAddress } = useContext(GeoContext);
 
   const [showField, setShowField] = useState(false);
-  const [pasoActual, setPasoActual] = useState('confirmar-punto');
+  const [pasoActual, setPasoActual] = useState('');
   const [observacion, setObservacion] = useState('');
   const [selectedEmpresa, setSelectedEmpresa] = useState({});
   const inputRef = useRef(null);
 
   const empresas = [
     { id: 1, nombre: "Radio Taxi Cipolletti", disponibilidad: "Disponibilidad limitada", tiempo: "2'" },
-    // { id: 2, nombre: "Taxi Express", disponibilidad: "Alta disponibilidad", tiempo: "5'" },
+    { id: 2, nombre: "Taxi Express", disponibilidad: "Alta disponibilidad", tiempo: "5'" },
   ];
 
   useEffect(() => {
@@ -29,6 +30,14 @@ export function StepsToTrip() {
     setSelectedEmpresa(empresas[0]);
   }, []);
 
+  const volverAtras = () => {
+    if (pasoActual === 'elegir-empresa') {
+      setPasoActual('confirmar-punto');
+    } else if (pasoActual === 'confirmar-punto') {
+      setPasoActual('');
+    }
+  };
+
   const confirmarPunto = () => {
     setPasoActual('elegir-empresa');
   };
@@ -38,8 +47,7 @@ export function StepsToTrip() {
       direccion: address,
       observacion
     };
-
-    // Lógica para manejar el punto de encuentro y la empresa seleccionada
+    console.log(selectedEmpresa.nombre, puntoEncuentro)
   };
 
   const renderSteps = () => {
@@ -125,21 +133,40 @@ export function StepsToTrip() {
     }
   };
 
-  return (
-    <section className="rounded-t-2xl bg-zinc-900 fixed left-0 bottom-0 w-full min-h-40 z-10 sm:hidden">
-      <div className="text-center flex flex-col justify-center items-center p-3 gap-1 border-b border-neutral-800">
-        {pasoActual === 'confirmar-punto' ? (
-          <>
-            <h3 className="text-md font-semibold">Fija el punto de encuentro</h3>
-            <p className="text-xs text-zinc-300">Arrastra el mapa para mover el marcador</p>
-          </>
-        ) : (
-          <>
-            <h3 className="text-md font-semibold">Elige una empresa</h3>
-          </>
-        )}
+  if (pasoActual === '') {
+    return (
+      <div className="fixed left-0 bottom-0 w-full z-20 flex flex-col p-3">
+        <Button onClick={() => setPasoActual('confirmar-punto')} size="lg" variant="shadow" radius="rounded-lg" color="black">
+          <span className="font-medium">
+            Pedir viaje
+          </span>
+        </Button>
       </div>
-      {renderSteps()}
-    </section>
+    )
+  }
+  return (
+    <>
+      <button onClick={volverAtras} className="fixed top-3 right-3 bg-zinc-900 rounded-full h-10 w-10 flex items-center justify-center z-20">
+        <HiChevronLeft className="mr-1 text-xl" />
+      </button>
+      <section className="rounded-t-2xl bg-zinc-900 fixed left-0 bottom-0 w-full min-h-40 z-10 sm:hidden tmnFade">
+        <button className="absolute -top-10 right-2 bg-zinc-800 p-2 rounded-full">
+          <BiCurrentLocation />
+        </button>
+        <div className="text-center flex flex-col justify-center items-center p-3 gap-1 border-b border-neutral-800">
+          {pasoActual === 'confirmar-punto' ? (
+            <>
+              <h3 className="text-md font-semibold">Fija el punto de encuentro</h3>
+              <p className="text-xs text-zinc-300">Arrastra el mapa para mover el marcador</p>
+            </>
+          ) : (
+            <>
+              <h3 className="text-md font-semibold">Elige una empresa</h3>
+            </>
+          )}
+        </div>
+        {renderSteps()}
+      </section>
+    </>
   );
 }

@@ -30,7 +30,7 @@ export function Button({
       light: 'ring-blue-500 hover:bg-blue-600/25 text-blue-500',
       flat: 'ring-blue-500 bg-blue-600/25 text-blue-500 hover:opacity-90',
       ghost: 'ring-blue-500 text-blue-600 dark:text-blue-400 hover:text-white dark:hover:text-white border-2 border-blue-600 hover:bg-blue-600',
-      shadow: 'ring-blue-500 bg-blue-600 text-white hover:opacity-90 shadow-lg shadow-blue-500/40 dark:shadow-blue-500',
+      shadow: 'ring-blue-500 bg-blue-600 text-white hover:opacity-90 shadow-lg shadow-blue-500/40 ',
     },
     emerald: {
       solid: 'ring-emerald-500 bg-emerald-600 text-white hover:opacity-90',
@@ -39,7 +39,7 @@ export function Button({
       light: 'ring-emerald-500 hover:bg-emerald-600/25 text-emerald-500',
       flat: 'ring-emerald-500 bg-emerald-600/25 text-emerald-500 hover:opacity-90',
       ghost: 'ring-emerald-500 text-emerald-600 dark:text-emerald-400 hover:text-white dark:hover:text-white border-2 border-emerald-600 hover:bg-emerald-600',
-      shadow: 'ring-emerald-500 bg-emerald-600 text-white hover:opacity-90 shadow-lg shadow-emerald-500/40 dark:shadow-emerald-500',
+      shadow: 'ring-emerald-500 bg-emerald-600 text-white hover:opacity-90 shadow-lg shadow-emerald-500/40 ',
     },
     red: {
       solid: 'ring-red-500 bg-red-600 text-white hover:opacity-90',
@@ -48,7 +48,7 @@ export function Button({
       light: 'ring-red-500 hover:bg-red-600/25 text-red-500',
       flat: 'ring-red-500 bg-red-600/25 text-red-500 hover:opacity-90',
       ghost: 'ring-red-500 text-red-600 dark:text-red-400 hover:text-white dark:hover:text-white border-2 border-red-600 hover:bg-red-600',
-      shadow: 'ring-red-500 bg-red-600 text-white hover:opacity-90 shadow-lg shadow-red-500/40 dark:shadow-red-500',
+      shadow: 'ring-red-500 bg-red-600 text-white hover:opacity-90 shadow-lg shadow-red-500/40 ',
     },
     zinc: {
       solid: 'ring-zinc-500 bg-zinc-600 text-white hover:opacity-90',
@@ -57,7 +57,7 @@ export function Button({
       light: 'ring-zinc-500 hover:bg-zinc-600/25 text-zinc-500',
       flat: 'ring-zinc-500 bg-zinc-600/25 text-zinc-500 hover:opacity-90',
       ghost: 'ring-zinc-500 text-zinc-600 dark:text-zinc-400 hover:text-white dark:hover:text-white border-2 border-zinc-600 hover:bg-zinc-600',
-      shadow: 'ring-zinc-500 bg-zinc-600 text-white hover:opacity-90 shadow-lg shadow-zinc-500/40 dark:shadow-zinc-500',
+      shadow: 'ring-zinc-500 bg-zinc-600 text-white hover:opacity-90 shadow-lg shadow-zinc-500/40 ',
     },
     yellow: {
       solid: 'ring-yellow-500 bg-yellow-600 text-white hover:opacity-90',
@@ -66,7 +66,7 @@ export function Button({
       light: 'ring-yellow-500 hover:bg-yellow-600/25 text-yellow-500',
       flat: 'ring-yellow-500 bg-yellow-600/25 text-yellow-500 hover:opacity-90',
       ghost: 'ring-yellow-500 text-yellow-600 dark:text-yellow-400 hover:text-white dark:hover:text-white border-2 border-yellow-600 hover:bg-yellow-600',
-      shadow: 'ring-yellow-500 bg-yellow-600 text-white hover:opacity-90 shadow-lg shadow-yellow-500/40 dark:shadow-yellow-500',
+      shadow: 'ring-yellow-500 bg-yellow-600 text-white hover:opacity-90 shadow-lg shadow-yellow-500/40 ',
     },
     sky: {
       solid: 'ring-sky-500 bg-sky-600 text-white hover:opacity-90',
@@ -75,7 +75,7 @@ export function Button({
       light: 'ring-sky-500 hover:bg-sky-600/25 text-sky-500',
       flat: 'ring-sky-500 bg-sky-600/25 text-sky-500 hover:opacity-90',
       ghost: 'ring-sky-500 text-sky-600 dark:text-sky-400 hover:text-white dark:hover:text-white border-2 border-sky-600 hover:bg-sky-600',
-      shadow: 'ring-sky-500 bg-sky-600 text-white hover:opacity-90 shadow-lg shadow-sky-500/40 dark:shadow-sky-500',
+      shadow: 'ring-sky-500 bg-sky-600 text-white hover:opacity-90 shadow-lg shadow-sky-500/40 ',
     },
     black: {
       solid: 'ring-zinc-400 bg-black text-white hover:opacity-90',
@@ -84,7 +84,7 @@ export function Button({
       light: 'ring-zinc-400 hover:bg-black/25 text-black',
       flat: 'ring-zinc-400 bg-black/25 text-black hover:opacity-90',
       ghost: 'ring-zinc-400 text-black dark:text-zinc-400 hover:text-white dark:hover:text-white border-2 border-black hover:bg-black',
-      shadow: 'ring-zinc-400 bg-black text-white hover:opacity-90 shadow-lg shadow-black/40 dark:shadow-black',
+      shadow: 'ring-zinc-400 bg-black text-white hover:opacity-90 shadow-lg shadow-black/40',
     },
     white: {
       solid: 'ring-zinc-400 bg-zinc-100 text-zinc-800 hover:opacity-90',
@@ -93,7 +93,7 @@ export function Button({
       light: 'ring-zinc-400 hover:bg-zinc-100/25 text-black',
       flat: 'ring-zinc-400 bg-zinc-100/25 text-black hover:opacity-90',
       ghost: 'ring-zinc-400 text-black dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-800 border-2 border-black hover:bg-zinc-100',
-      shadow: 'ring-zinc-400 bg-zinc-100 text-zinc-800 hover:opacity-90 shadow-lg shadow-black/40 dark:shadow-black',
+      shadow: 'ring-zinc-400 bg-zinc-100 text-zinc-800 hover:opacity-90 shadow-lg shadow-black/40',
     },
   };
 

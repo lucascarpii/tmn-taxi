@@ -13,7 +13,8 @@ const MapView = () => {
     if (mapContainerRef.current && !mapContainerRef.current._leaflet_id) {
       const map = L.map('map', { fadeAnimation: false }).setView(geoPosition, 18);
       L.tileLayer.grayscale('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors'
+        // attribution: '© OpenStreetMap contributors'
+
       }).addTo(map);
 
       let iconMarker = L.divIcon({
@@ -25,11 +26,11 @@ const MapView = () => {
 
       let marker = L.marker(map.getCenter(), {
         icon: iconMarker,
-        title: 'Usuario',
-        alt: 'tmn-ico',
         draggable: false,
         interactive: false
       }).addTo(map);
+
+      // map.locate({setView: true, maxZoom: 16});
 
       function reverseGeocode(lat, lon) {
         let url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&addressdetails=1`;
