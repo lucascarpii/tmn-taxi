@@ -1,13 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import './leaflet.1.9.4.css';
 import './leaflet.1.9.4';
 import './TileLayer.Grayscale';
 import { GiPositionMarker } from "react-icons/gi";
+import { GeoContext } from '../../Context';
 
 const MapView = () => {
   const mapContainerRef = useRef(null);
-  const [address, setAddress] = useState('');
-  const [geoPosition, setGeoPosition] = useState([-38.9272482, -68.0024678]);
+  const { address, setAddress, geoPosition, setGeoPosition, setLoadingAddress } = useContext(GeoContext)
 
   useEffect(() => {
     if (mapContainerRef.current && !mapContainerRef.current._leaflet_id) {
@@ -34,6 +34,7 @@ const MapView = () => {
       function reverseGeocode(lat, lon) {
         let url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&addressdetails=1`;
 
+        setLoadingAddress(true)
         fetch(url)
           .then(response => response.json())
           .then(data => {
@@ -44,10 +45,12 @@ const MapView = () => {
               var formattedAddress = `${street} ${houseNumber}`;
               setAddress(formattedAddress);
               // marker.bindPopup(formattedAddress).openPopup();
+              setLoadingAddress(false)
             } else {
               var noAddress = 'No se encontró una dirección para estas coordenadas.';
               setAddress(noAddress);
               // marker.bindPopup(noAddress).openPopup();
+              setLoadingAddress(false)
             }
           })
           .catch(error => console.error('Error:', error));
