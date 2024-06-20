@@ -17,7 +17,7 @@ export function StepsToTrip() {
 
   const empresas = [
     { id: 1, nombre: "Radio Taxi Cipolletti", disponibilidad: "Disponibilidad limitada", tiempo: "2'" },
-    { id: 2, nombre: "Taxi Express", disponibilidad: "Alta disponibilidad", tiempo: "5'" },
+    // { id: 2, nombre: "Taxi Express", disponibilidad: "Alta disponibilidad", tiempo: "5'" },
   ];
 
   useEffect(() => {
