@@ -4,6 +4,7 @@ export const GeoContext = createContext();
 
 export const GeoProvider = ({ children }) => {
   const [address, setAddress] = useState('');
+  const [city, setCity] = useState('');
   const [loadingAddress, setLoadingAddress] = useState(false);
   const [geoPosition, setGeoPosition] = useState([-38.9272482, -68.0024678]);
   
@@ -14,7 +15,9 @@ export const GeoProvider = ({ children }) => {
       geoPosition,
       setGeoPosition,
       loadingAddress,
-      setLoadingAddress
+      setLoadingAddress,
+      city,
+      setCity
     }}>
       {children}
     </GeoContext.Provider>

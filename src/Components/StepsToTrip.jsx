@@ -7,7 +7,7 @@ import { BiCurrentLocation, BiLoaderAlt } from "react-icons/bi";
 import { HiChevronLeft } from "react-icons/hi2";
 
 export function StepsToTrip() {
-  const { address, loadingAddress } = useContext(GeoContext);
+  const { address, loadingAddress, city } = useContext(GeoContext);
 
   const [showField, setShowField] = useState(false);
   const [pasoActual, setPasoActual] = useState('');
@@ -37,7 +37,15 @@ export function StepsToTrip() {
       setPasoActual('');
     }
   };
-
+  const pedirViaje = () => {
+    const cities = ['Cipolletti', 'Municipio de Cipolletti'] 
+    console.log(city)
+    if (cities.includes(city)) {
+      setPasoActual('confirmar-punto')
+    } else {
+      console.log('Por el momento la aplicación no funciona en tu ciudad.')
+    }
+  }
   const confirmarPunto = () => {
     setPasoActual('elegir-empresa');
   };
@@ -136,7 +144,7 @@ export function StepsToTrip() {
   if (pasoActual === '') {
     return (
       <div className="fixed left-0 bottom-0 w-full z-20 flex flex-col p-3">
-        <Button onClick={() => setPasoActual('confirmar-punto')} size="lg" variant="shadow" radius="rounded-lg" color="black">
+        <Button onClick={pedirViaje} size="lg" variant="shadow" radius="rounded-lg" color="black">
           <span className="font-medium">
             Pedir viaje
           </span>

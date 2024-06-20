@@ -7,7 +7,7 @@ import { GeoContext } from '../../Context';
 
 const MapView = () => {
   const mapContainerRef = useRef(null);
-  const { address, setAddress, geoPosition, setGeoPosition, setLoadingAddress } = useContext(GeoContext)
+  const { address, setAddress, geoPosition, setGeoPosition, setLoadingAddress, setCity } = useContext(GeoContext)
 
   useEffect(() => {
     if (mapContainerRef.current && !mapContainerRef.current._leaflet_id) {
@@ -39,16 +39,17 @@ const MapView = () => {
         fetch(url)
           .then(response => response.json())
           .then(data => {
+            setCity(data.address.city || data.address.town || data.address.village)
             if (data && data.address) {
-              var address = data.address;
-              var street = address.road || 'N/A';
-              var houseNumber = address.house_number || 'N/A';
-              var formattedAddress = `${street} ${houseNumber}`;
+              let address = data.address;
+              let street = address.road || 'N/A';
+              let houseNumber = address.house_number || 'N/A';
+              let formattedAddress = `${street} ${houseNumber}`;
               setAddress(formattedAddress);
               // marker.bindPopup(formattedAddress).openPopup();
               setLoadingAddress(false)
             } else {
-              var noAddress = 'No se encontró una dirección para estas coordenadas.';
+              let noAddress = 'No se encontró una dirección para estas coordenadas.';
               setAddress(noAddress);
               // marker.bindPopup(noAddress).openPopup();
               setLoadingAddress(false)
