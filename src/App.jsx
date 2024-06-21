@@ -6,6 +6,7 @@ import { Reservas } from "./Pages/Reservas"
 import { Actividad } from "./Pages/Actividad"
 import { Cuenta } from "./Pages/Cuenta"
 import { BrowserRouter, useRoutes } from "react-router-dom"
+import { BottomNav } from "./Components/BottomNav"
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
     <GeoProvider>
       <BrowserRouter>
         <AppRoutes />
+        <BottomNav />
       </BrowserRouter>
     </GeoProvider>
   )
