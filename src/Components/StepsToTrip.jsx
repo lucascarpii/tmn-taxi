@@ -143,7 +143,7 @@ export function StepsToTrip() {
 
   if (pasoActual === '') {
     return (
-      <div className="fixed left-0 bottom-0 w-full z-20 flex flex-col p-3">
+      <div className="fixed left-0 bottom-12 w-full z-20 flex flex-col p-3">
         <Button onClick={pedirViaje} size="lg" variant="shadow" radius="rounded-lg" color="black">
           <span className="font-medium">
             Pedir viaje
@@ -157,7 +157,7 @@ export function StepsToTrip() {
       <button onClick={volverAtras} className="fixed top-3 right-3 bg-zinc-900 rounded-full h-10 w-10 flex items-center justify-center z-20">
         <HiChevronLeft className="mr-1 text-xl" />
       </button>
-      <section className="rounded-t-2xl bg-zinc-900 fixed left-0 bottom-0 w-full min-h-40 z-10 sm:hidden tmnFade">
+      <section className="rounded-t-2xl bg-zinc-900 fixed left-0 bottom-0 w-full min-h-40 z-50 sm:hidden tmnFade">
         <button className="absolute -top-10 right-2 bg-zinc-800 p-2 rounded-full">
           <BiCurrentLocation />
         </button>

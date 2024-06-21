@@ -11,7 +11,8 @@ const MapView = () => {
 
   useEffect(() => {
     if (mapContainerRef.current && !mapContainerRef.current._leaflet_id) {
-      const map = L.map('map', { fadeAnimation: false }).setView(geoPosition, 18);
+      
+      const map = L.map('map', { fadeAnimation: false, zoomControl: false }).setView(geoPosition, 18);
       L.tileLayer.grayscale('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         // attribution: '© OpenStreetMap contributors'
 
